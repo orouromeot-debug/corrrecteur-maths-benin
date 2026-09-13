@@ -49,7 +49,7 @@ if st.button("🚀 Générer la clé et la grille de correction"):
                 texte_epreuve = lire_pdf(exam_file)
 
                 genai.configure(api_key=api_key)
-                model = genai.GenerativeModel("gemini-2.5-flash")
+                model = genai.GenerativeModel("gemini-1.5-flash")
 
                 prompt = f"""
                 Tu es un expert pédagogique en mathématiques au Bénin (Approche Par Compétences - APC).
