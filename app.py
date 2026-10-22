@@ -1,11 +1,11 @@
 import streamlit as st
-import google.generativeai as genai
+from google import genai
 from pypdf import PdfReader
 
 # Configuration de la page Streamlit
 st.set_page_config(page_title="Générateur de Clé & Grille de Correction", layout="wide")
 
-st.title("📐 Concepteur de Clé et Grille de Correction (Maths Bénin -TIEPAYOA- APC)")
+st.title("📐 Concepteur de Clé et Grille de Correction (Maths Bénin - TIEPAYOA - APC)")
 st.write("Téléversez vos documents ci-dessous pour générer la clé et la grille de correction.")
 
 # Configuration de la clé API dans le menu latéral
@@ -48,8 +48,8 @@ if st.button("🚀 Générer la clé et la grille de correction"):
                 texte_exemple = lire_pdf(example_file)
                 texte_epreuve = lire_pdf(exam_file)
 
-                genai.configure(api_key=api_key)
-                model = genai.GenerativeModel("gemini-1.5-flash")
+                # Initialisation du client officiel Google GenAI
+                client = genai.Client(api_key=api_key)
 
                 prompt = f"""
                 Tu es un expert pédagogique en mathématiques au Bénin (Approche Par Compétences - APC).
@@ -69,7 +69,11 @@ if st.button("🚀 Générer la clé et la grille de correction"):
                 Rédige la clé de correction détaillée et la grille d'évaluation (Critères Minimaux CM1, CM2, CM3 et Critères de Perfectionnement CP) strictement adaptées à l'épreuve fournie, en respectant la structure du modèle exemple et les directives du guide pédagogique.
                 """
 
-                response = model.generate_content(prompt)
+                # Appel avec le modèle moderne gemini-2.5-flash
+                response = client.models.generate_content(
+                    model="gemini-2.5-flash",
+                    contents=prompt,
+                )
 
                 st.success("Génération terminée !")
                 st.markdown("### Résultat :")
