@@ -5,7 +5,7 @@ from pypdf import PdfReader
 # Configuration de la page Streamlit
 st.set_page_config(page_title="Générateur de Clé & Grille de Correction", layout="wide")
 
-st.title("📐 Concepteur de Clé et Grille de Correction (Maths Bénin - APC)")
+st.title("📐 Concepteur de Clé et Grille de Correction (Maths Bénin -TIEPAYOA- APC)")
 st.write("Téléversez vos documents ci-dessous pour générer la clé et la grille de correction.")
 
 # Configuration de la clé API dans le menu latéral
@@ -49,7 +49,7 @@ if st.button("🚀 Générer la clé et la grille de correction"):
                 texte_epreuve = lire_pdf(exam_file)
 
                 genai.configure(api_key=api_key)
-                model = genai.GenerativeModel("gemini-1.5-flash")
+                model = genai.GenerativeModel("gemini-1.5-flash-latest")
 
                 prompt = f"""
                 Tu es un expert pédagogique en mathématiques au Bénin (Approche Par Compétences - APC).
