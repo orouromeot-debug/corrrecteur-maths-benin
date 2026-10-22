@@ -71,7 +71,7 @@ if st.button("🚀 Générer la clé et la grille de correction"):
 
                 # Appel avec le modèle moderne gemini-3.8-flash recommandé
                 response = client.models.generate_content(
-                    model="gemini-3.8-flash",
+                    model="gemini-1.5-pro",
                     contents=prompt,
                 )
 
