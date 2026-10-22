@@ -69,9 +69,9 @@ if st.button("🚀 Générer la clé et la grille de correction"):
                 Rédige la clé de correction détaillée et la grille d'évaluation (Critères Minimaux CM1, CM2, CM3 et Critères de Perfectionnement CP) strictement adaptées à l'épreuve fournie, en respectant la structure du modèle exemple et les directives du guide pédagogique.
                 """
 
-                # Appel avec le modèle moderne gemini-2.5-flash
+                # Appel avec le modèle moderne gemini-3.8-flash recommandé
                 response = client.models.generate_content(
-                    model="gemini-2.5-flash",
+                    model="gemini-3.8-flash",
                     contents=prompt,
                 )
 
